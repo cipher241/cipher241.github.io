@@ -1,0 +1,105 @@
+body {
+  background-color: lime;
+  background-image: repeating-linear-gradient(
+    30deg,
+    hotpink 0px,
+    hotpink 10px,
+    lime 40px,
+    lime 20px
+  );
+  font-family: "Comic Sans MS", cursive;
+  font-size: 15px;
+  color: rgb(7, 30, 241);
+  margin: 0;
+  padding: 40px;
+  text-shadow: 1px 1px 0px rgb(235, 163, 9), -2px -2px 0px orange;
+  letter-spacing: 8px;
+  word-spacing: 20px;
+}
+
+.titulos {
+  font-family: "Papyrus", fantasy;
+  font-size: 7px;
+  color: yellow;
+  background-color: purple;
+  text-align: center;
+  text-decoration: underline ;
+  text-transform: uppercase;
+  border: 10px dashed orange;
+  padding: 20px;
+  margin: 30px 0;
+  text-shadow:
+    3px 3px 0 rgb(255, 0, 0),
+    6px 6px 0 blue;
+  letter-spacing: 10px;
+  transform: rotate(-2deg) skewX(-10deg);
+}
+
+.texto {
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  color: navy;
+  text-align: justify;
+  margin: 15%;
+  border-left: 2px solid red;
+  border-right: 2px solid blue;
+  border-top: 2px solid green;
+  border-bottom: 2px solid orange;
+  letter-spacing: 0px;
+  word-spacing: 15px;
+  text-decoration: underline;
+  opacity: 0.85;
+  font-weight: 900;
+  filter: blur(0.1px);
+  display: block;
+}
+
+#tabla {
+  border-collapse: separate;
+  border-spacing: 5px;
+  width: 90%;
+  background-color: orange;
+  border: 10px ridge magenta;
+  font-family: "Impact", sans-serif;
+  font-size: 13px;
+  color: white;
+  text-align: center;
+  transform: rotate(2deg);
+}
+
+#tabla th {
+  background-color: red;
+  color: lime;
+  font-size: 18px;
+  padding: 5px;
+  border: 5px dotted blue;
+  text-shadow: 2px 2px black;
+  text-transform: lowercase;
+  letter-spacing: 6px;
+}
+
+#tabla td {
+  background-color: hotpink;
+  color: darkblue;
+  border: 4px dashed yellow;
+  padding: 2px 20px;
+  font-style: italic;
+  vertical-align: bottom;
+}
+
+.textocss {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  color: darkred;
+  background-color: lightyellow;
+  padding: 15px;
+  margin: 25px 0;
+  border: 3px solid darkred;
+  text-align: left;
+  word-spacing: normal;
+  letter-spacing: normal;
+  line-height: 1.6;
+  text-decoration: none;
+  box-shadow: 2px 2px 5px gray;
+  transform: none;
+}
