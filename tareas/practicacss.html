@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clase antes de vacaciones</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+>
+</head>
+<body >
+  
+  <button id="uno">Obtener JSON</button>
+  <button id="dos">Obtener Artista</button>
+  <button id="tres">Obtener Artista de Compañero</button>
+   <div id="contenedor">
+      <div class="elemento"> Sección 1</div>
+      <div class="elemento"> Sección 2</div>
+      <div class="elemento"> Sección 3</div>
+   </div> 
+
+   <div id="encabezado"></div>
+   
+
+   <script>
+    let t=1986;
+    const c=12;
+    console.log(t+c); 
+
+    let p={"titulo": "Llano en llamas", "autor": "Juan Rulfo"};
+    console.log(p.autor);
+
+    let d=document.createElement("p");
+    d.textContent="Hola";
+
+    d.setAttribute("style", "color: blue;");
+
+    document.getElementById("encabezado").appendChild(d);
+
+    async function obtenerJSON(){
+      const respuesta = await fetch('http://openlibrary.org/subjects/love.json?published_in=1500-1600');  
+      const datos = await respuesta.json();
+      console.log(datos);
+
+      let j=document.createElement("p");
+      j.textContent = datos.works[0].title;
+      document.getElementById("encabezado").appendChild(j);
+    }
+
+    let r = document.getElementById("uno");
+    r.textContent = "Obtener JSON";
+    r.addEventListener("click", obtenerJSON);
+
+    async function obtenerArtista(){
+      const respuesta = await fetch('https://www.theaudiodb.com/api/v1/json/123/search.php?s=AJR');  
+      const datosArt = await respuesta.json();
+      console.log(datosArt);
+
+      const imagen = document.createElement("img");
+      imagen.src = datosArt.artists[0].strArtistThumb;
+
+      let j=document.createElement("p");
+      j.textContent = datosArt.artists[0].strBiography;
+      document.getElementById("encabezado").appendChild(j);
+      document.getElementById("encabezado").appendChild(imagen);
+    }
+
+     let r2 = document.getElementById("dos");
+     r2.textContent = "Obtener Artista";
+     r2.addEventListener("click", obtenerArtista);
+
+     async function obtenerArtistaComp(){
+      const respuesta = await fetch('https://www.theaudiodb.com/api/v1/json/123/search.php?s=Bad+Bunny');  
+      const datosArtComp = await respuesta.json();
+      console.log(datosArtComp);
+
+      const imagenComp = document.createElement("img");
+      imagenComp.src = datosArtComp.artists[0].strArtistThumb;
+
+      let a=document.createElement("p");
+      a.textContent = datosArtComp.artists[0].strBiography;
+      document.getElementById("encabezado").appendChild(a);
+      document.getElementById("encabezado").appendChild(imagenComp);
+    }
+
+    let r3 = document.getElementById("tres");
+     r3.textContent = "Obtener Artista de Compañero";
+     r3.addEventListener("click", obtenerArtistaComp);
+   </script>
+
+    
+</body>
+</html>
