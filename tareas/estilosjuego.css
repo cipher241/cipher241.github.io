@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(255, 145, 0);
+    color:brown;
+}
+
+a {
+    color:blueviolet;
+    text-decoration: none;
+}
+
+a:hover {
+    color:blueviolet;
+    text-decoration: underline;
+}
