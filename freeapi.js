@@ -2,8 +2,8 @@ import 'dotenv/config';
 import http from 'http';
 import fetch from 'node-fetch';
 
-console.log("KEY:", process.env.STEAM_API_KEY);
-console.log("ID:", process.env.STEAM_ID);
+const STEAM_API_KEY = process.env.STEAM_API_KEY;
+const STEAM_ID = process.env.STEAM_ID;
 
 async function obtenerJuegosDeUsuario() {
   const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key=${STEAM_API_KEY}&steamid=${STEAM_ID}&include_appinfo=true&format=json`;
