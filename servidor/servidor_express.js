@@ -1,12 +1,43 @@
 //HTML (HyperText Markup Language) sirve para crear y estructurar páginas web. Es el lenguaje básico de Internet y se utiliza para decirle al navegador qué contenido mostrar y cómo organizarlo.
-import http from 'http';
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 //fs (File System) Sirve para trabajar con archivos y carpetas desde tu código.
-import fs from 'fs';
 
+//Ahora que transformé todo el código para utilizar express me doy cuenta que es mucho más eficiente y facil de utilizar, haciendo lo mismo que html en la mitad de lineas de codigo
+
+
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const app = express();
+
+  app.listen(1984, () => {
+   console.log('Up and up');
+  });
+
+  //Esta función deberá enviar un json con los datos de los usuarios
+    function getUsuarios(req, res) {
+        const usuarios = [{
+            "nombre": "Punk",
+            "saldo": "0",
+          },
+          {
+            "nombre": "Lola",
+            "saldo": "1000",
+          }
+        ];  
+      /*res.writeHead(200, { 'Content-Type': 'application/json' });
+      
+      //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
+      res.end(JSON.stringify(usuarios));*/
+
+      return usuarios;
+    }
 
     //Esta función deberá mostrar deberá mostrar una página HTML 
     //con la bienvenida a tu proyecto
-    function darBienvenida(req, res) {
+    /*function darBienvenida(req, res) {
        //Agrega lo mínimo necesario en bienvenida.html
        
       
@@ -21,24 +52,6 @@ import fs from 'fs';
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end(data);
     });
-    }
-
-
-    //Esta función deberá enviar un json con los datos de los usuarios
-    function getUsuarios(req, res) {
-        const usuarios = [{
-            "nombre": "Punk",
-            "saldo": "0",
-          },
-          {
-            "nombre": "Lola",
-            "saldo": "1000",
-          }
-        ];  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      
-      //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
-      res.end(JSON.stringify(usuarios));
     }
 
     function mostrarUsuarios(req, res) {
@@ -77,7 +90,7 @@ import fs from 'fs';
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.end(data);
         });
-      }
+      }*/
 
     //Esta función deberá enviar un json con los datos de las movimientos
     function getMovimientos(req, res) {
@@ -92,11 +105,11 @@ import fs from 'fs';
             "saldo_actual": "1000",
           }
         ];  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(movimientos));
+
+      return movimientos;
     }
 
-    function mostrarEquipo(req, res) {
+    /*function mostrarEquipo(req, res) {
         fs.readFile('equipo.html', 'utf8', (error, data) => {
             if (error) {
               res.writeHead(500, { 'Content-Type': 'text/plain' });
@@ -118,7 +131,7 @@ import fs from 'fs';
             res.writeHead(200, { 'Content-Type': 'text/html' });
             res.end(data);
         });
-      }
+      }*/
 
       function getCashback(req, res) {
         const cashback = {
@@ -127,10 +140,7 @@ import fs from 'fs';
             "Cashback": "0.000001%",
             "Cash back en pesos": "0.01"
         };  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      
-      //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
-      res.end(JSON.stringify(cashback));
+      return cashback;
     }
 
     function eliminarUsuario(req, res) {
@@ -141,10 +151,7 @@ import fs from 'fs';
 
             "eliminado": "true"
         };  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      
-      //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
-      res.end(JSON.stringify(usuario));
+      return usuario;
     }
 
     function autentificarUsuario(req, res) {
@@ -152,10 +159,7 @@ import fs from 'fs';
             "nombre": "Punk",
             "Se inició sesión": "true",
         };  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      
-      //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
-      res.end(JSON.stringify(usuario));
+      return usuario;
     }
 
     function checkout(req, res) {
@@ -165,10 +169,11 @@ import fs from 'fs';
 
             "checkout": "completado"
         };  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
+      /*res.writeHead(200, { 'Content-Type': 'application/json' });
       
       //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
-      res.end(JSON.stringify(checkout));
+      res.end(JSON.stringify(checkout));*/
+      return checkout;
     }
 
     function getSaldo(req, res) {
@@ -176,10 +181,11 @@ import fs from 'fs';
             "nombre": "Punk",
             "saldo": "Billon de trillones de pesos",
         };  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
+      /*res.writeHead(200, { 'Content-Type': 'application/json' });
       
       //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
-      res.end(JSON.stringify(usuario));
+      res.end(JSON.stringify(usuario));*/
+      return usuario;
     }
 
     function crearUsuario(req, res) {
@@ -187,19 +193,104 @@ import fs from 'fs';
             "nombre": "Punk2",
             "saldo": "1000",
         };  
-      res.writeHead(200, { 'Content-Type': 'application/json' });
+      /*res.writeHead(200, { 'Content-Type': 'application/json' });
       
       //stringify convierte un objeto de JavaScript en una cadena JSON. Esto es necesario porque el servidor debe enviar datos en formato de texto, y JSON es un formato de texto que representa objetos y estructuras de datos.
-      res.end(JSON.stringify(usuarioNuevo));
+      res.end(JSON.stringify(usuarioNuevo));*/
+      return usuarioNuevo;
     }
 
-    function manejarRuta404(req, res) {
-      res.writeHead(404, { 'Content-Type': 'text/plain' });
-      res.end('Bro aprende a escribir bien la ruta');
+    app.get('/', (req, res) => {res.sendFile(path.join(__dirname, 'bienvenida.html'));
+  });
+
+    app.get('/api/usuarios', (req, res) => {
+      try {
+      const usuarios = getUsuarios(); 
+      res.json(usuarios);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
     }
+    });
+
+    app.get('/api/movimientos', (req, res) => {
+      try {
+      const mov = getMovimientos(); 
+      res.json(mov);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+    });
+
+    app.get('/usuarios', (req, res) => {res.sendFile(path.join(__dirname, 'usuarios.html')); });
+
+    app.get('/movimientos', (req, res) => {res.sendFile(path.join(__dirname, 'movimientos.html'));});
+
+    app.get('/perfil', (req, res) => {res.sendFile(path.join(__dirname, 'perfil.html'));});
+
+    app.get('/equipo', (req, res) => {res.sendFile(path.join(__dirname, 'equipo.html'));});
+
+    app.get('/opinion', (req, res) => {res.sendFile(path.join(__dirname, 'opinion.html'));});
+
+    app.get('/api/cashback', (req, res) => {
+      try {
+      const cash = getCashback(); 
+      res.json(cash);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+    });
+
+    app.get('/api/eliminar-usuario', (req, res) => {
+      try {
+      const eliminar = eliminarUsuario(); 
+      res.json(eliminar);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+    });
+
+    app.get('/api/autentificar-usuario', (req, res) => {
+      try {
+      const auth = autentificarUsuario(); 
+      res.json(auth);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+    });
+
+    app.get('/api/checkout', (req, res) => {
+      try {
+      const check = checkout(); 
+      res.json(check);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+    });
+
+    app.get('/api/saldo', (req, res) => {
+      try {
+      const sald = getSaldo(); 
+      res.json(sald);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+    });
+
+    app.get('/api/crear-usuario', (req, res) => {
+      try {
+      const crear = crearUsuario(); 
+      res.json(crear);
+    } catch (err) {
+      res.status(500).json({ error: err.message });
+    }
+    });
+
+    app.use((req, res) => {
+      res.end('Bro aprende a escribir bien la ruta');
+    });
 
     //incluye el enlace a la documentación de createServer
-    const servidor = http.createServer((req, res) => {
+    /*const servidor = http.createServer((req, res) => {
       const url = req.url;
 
       if (url === '/') {
@@ -248,12 +339,9 @@ import fs from 'fs';
       else {
         manejarRuta404(req, res);
       }
-    });
+    });*/
 
-    const puerto = 1984;
-    servidor.listen(puerto, () => {
-      console.log(`Servidor escuchando en el puerto ${puerto}`);
-    });
-
+    //Importante
+    //En esta actividad deberás agregar en miarchivo.html un enlace a servidor.js y al resto de los html
     //Importante
     //En esta actividad deberás agregar en miarchivo.html un enlace a servidor.js y al resto de los html
